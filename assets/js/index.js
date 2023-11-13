@@ -118,3 +118,6 @@ function calculateFinancialAnalysis(data) {
       }
     }
   }
+
+  // Calculate average change
+  const averageChange = totalChange / (totalMonths - 1);
