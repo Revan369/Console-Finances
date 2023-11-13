@@ -86,3 +86,35 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+// Function to calculate the financial analysis
+function calculateFinancialAnalysis(data) {
+  let totalMonths = data.length;
+  let totalProfitLoss = 0;
+  let totalChange = 0;
+  let greatestIncrease = { date: '', amount: 0 };
+  let greatestDecrease = { date: '', amount: 0 };
+
+  for (let i = 0; i < totalMonths; i++) {
+    // Extract relevant data
+    const date = data[i][0];
+    const profitLoss = data[i][1];
+
+    // Calculate total profit/loss
+    totalProfitLoss += profitLoss;
+
+    // Calculate change in profit/loss
+    if (i > 0) {
+      const change = profitLoss - data[i - 1][1];
+      totalChange += change;
+
+      // Update greatest increase/decrease
+      if (change > greatestIncrease.amount) {
+        greatestIncrease = { date, amount: change };
+      }
+      if (change < greatestDecrease.amount) {
+        greatestDecrease = { date, amount: change };
+      }
+    }
+  }
