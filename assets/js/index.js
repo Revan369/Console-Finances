@@ -137,3 +137,6 @@ function calculateFinancialAnalysis(data) {
     greatestDecrease.date + ' ($' + greatestDecrease.amount + ')'
   );
 }
+
+// Call the function with the provided financial dataset
+calculateFinancialAnalysis(finances);
